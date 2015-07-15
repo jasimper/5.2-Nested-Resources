@@ -41,11 +41,11 @@ class AlbumsControllerTest < ActionController::TestCase
       @album.reload
       refute @album.title == old_title
       assert_equal new_title, @album.title
-      assert_redirected_to song_path(@album)
+      assert_redirected_to album_path(@album)
     end
 
     test 'renders new with INvalid attributes' do
-      old_title = @album.name
+      old_title = @album.title
       new_title = ''
       patch :update, id: @album, album: { title: new_title }
       @album.reload

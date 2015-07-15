@@ -1,5 +1,4 @@
-class ArtistTest < ActiveSupport::TestCase
-  require 'test_helper'
+require 'test_helper'
 
 class ArtistTest < ActiveSupport::TestCase
   def setup

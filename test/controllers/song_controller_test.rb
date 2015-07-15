@@ -49,7 +49,7 @@ class SongsControllerTest < ActionController::TestCase
     end
 
     test 'renders new with INvalid attributes' do
-      old_title = @song.name
+      old_title = @song.title
       new_title = ''
       patch :update, id: @song, song: { title: new_title }
       @song.reload
