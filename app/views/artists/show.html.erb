@@ -1,0 +1,14 @@
+<header>
+  <h1> <%= @artist.name %> </h1>
+</header>
+<div>
+<ul>
+    <% @albums.each do |a| %>
+      <li>
+        <%= a.title %>
+      -
+        <%= link_to 'Show', album_path(a) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
