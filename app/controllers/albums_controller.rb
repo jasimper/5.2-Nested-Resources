@@ -34,7 +34,7 @@ class AlbumsController < ApplicationController
     @artist = get_artist
     @album = get_album(@artist)
     @album.destroy
-    redirect_to artist_path
+    redirect_to artist_path(@artist)
   end
 
   private
@@ -46,7 +46,7 @@ class AlbumsController < ApplicationController
   def get_album(artist)
     artist.albums.find(params[:id])
   end
-  
+
   def album_params
     params.require(:album).permit(:title, :release_date)
   end

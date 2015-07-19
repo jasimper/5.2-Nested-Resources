@@ -40,7 +40,7 @@ class SongsController < ApplicationController
     @album = get_album(@artist)
     @song = get_song(@album)
     @song.destroy
-    redirect_to artist_path
+    redirect_to artist_path(@artist)
   end
 
   private

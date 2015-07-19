@@ -2,7 +2,7 @@
   <h1>Edit a Song's Info</h1>
 </header>
 <div class="main">
-  <%= form_for @song do |f| %>
+  <%= form_for [@artist, @album, @song] do |f| %>
     <% if @song.errors.full_messages.present? %>
       <ul>
         <% @song.errors.full_messages.each do |message| %>
