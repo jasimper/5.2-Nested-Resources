@@ -1,0 +1,16 @@
+<h1>Artists Galore</h1>
+
+<div class="main">
+  <%= link_to 'Would you like to add a new artist?', new_artist_path %>
+  <ul class="lists">
+    <% @artists.each do |a| %>
+      <li>
+        <%= a.name %>
+      -
+        <%= a.bio %>
+      -
+        <%= link_to 'Show', artist_path(a) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

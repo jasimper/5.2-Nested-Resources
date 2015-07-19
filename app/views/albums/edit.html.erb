@@ -1,8 +1,8 @@
 <header>
   <h1>Edit an Album's Info</h1>
 </header>
-<div>
-  <%= form_for @album do |f| %>
+<div class="main">
+  <%= form_for [@artist, @album] do |f| %>
     <% if @album.errors.full_messages.present? %>
       <ul>
         <% @album.errors.full_messages.each do |message| %>
@@ -13,6 +13,10 @@
     <div>
       <%= f.label :title %>
       <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :release_date %>
+      <%= f.text_field :release_date %>
     </div>
     <div>
       <%= f.submit 'Submit' %>

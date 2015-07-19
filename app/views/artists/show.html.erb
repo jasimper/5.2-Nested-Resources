@@ -1,14 +1,37 @@
 <header>
   <h1> <%= @artist.name %> </h1>
+  <ul>
+    <li><%= link_to 'Edit', edit_artist_path(@artist) %>
+  -
+  <li><%= link_to 'Delete', artist_path(@artist), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 </header>
+<%= link_to 'Would you like to add a new album for this artist?', new_artist_album_path(@artist) %>
 <div>
 <ul>
-    <% @albums.each do |a| %>
+    <% @artist.albums.each do |a| %>
       <li>
         <%= a.title %>
       -
-        <%= link_to 'Show', album_path(a) %>
+        <%= a.release_date %>
+      -
+        <%= link_to 'Edit', edit_artist_album_path(@artist, a) %>
+      -
+        <%= link_to 'Delete', artist_album_path(@artist, a), method: :delete, data: { confirm: 'Are you sure?' } %>
       </li>
+
+      <ul>
+          <% a.songs.each do |s| %>
+            <li>
+              <%= s.title %>
+            -
+              <%= link_to 'Edit', edit_artist_album_song_path(@artist, a, s) %>
+            -
+              <%= link_to 'Delete', artist_album_song_path(@artist, a, s), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </li>
+          <% end %>
+        </ul>
+    <%= link_to 'Would you like to add a new song to this album?', new_artist_album_song_path(@artist, a) %>
     <% end %>
   </ul>
 </div>
