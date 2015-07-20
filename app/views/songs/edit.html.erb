@@ -1,0 +1,21 @@
+<header>
+  <h1>Edit a Song's Info</h1>
+</header>
+<div class="main">
+  <%= form_for [@artist, @album, @song] do |f| %>
+    <% if @song.errors.full_messages.present? %>
+      <ul>
+        <% @song.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.submit 'Submit' %>
+    </div>
+  <% end %>
+</div>

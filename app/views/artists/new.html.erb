@@ -1,0 +1,25 @@
+<header>
+  <h1>Add an Artist's Info</h1>
+</header>
+<div class="main">
+  <%= form_for @artist do |f| %>
+    <% if @artist.errors.full_messages.present? %>
+      <ul>
+        <% @artist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :bio %>
+      <%= f.text_field :bio %>
+    </div>
+    <div>
+      <%= f.submit 'Submit' %>
+    </div>
+  <% end %>
+</div>
